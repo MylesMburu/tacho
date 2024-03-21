@@ -28,7 +28,7 @@ Route::get('/search', function (Request $request) {
 });
 
 //All listings
-Route::get('listings', function(){
+Route::get('/listings', function(){
     return view('listings',
         [
             'heading' => 'Job Listings',
@@ -38,10 +38,9 @@ Route::get('listings', function(){
 });
 
 //Single listing
-Route::get('listings/{id}', function($id){
-    return view('listings',
+Route::get('/listings/{id}', function($id){
+    return view('listing',
     [
-        'heading' => 'Job Listing',
-        'listings' => [Listing::find($id)] //use the Listing model to get a single listing
+        'listing' => Listing::find($id) //use the Listing model to get a single listing
     ]);
 });
